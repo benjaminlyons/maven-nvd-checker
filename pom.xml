@@ -71,41 +71,17 @@
 	</dependency>
 </dependencies>
 <build>
-	<plugins>
-		<plugin>
-			<groupId>org.apache.maven.plugins</groupId>
-			<artifactId>maven-surefire-plugin</artifactId>
-			<version>3.0.0-M3</version>
-			<configuration>
-				<useSystemClassLoader>false</useSystemClassLoader>
-			</configuration>
-		</plugin>
-		<plugin>
-			<groupId>org.apache.maven.plugins</groupId>
-			<artifactId>maven-shade-plugin</artifactId>
-			<version>1.6</version>
-			<executions>
-				<execution>
-					<phase>package</phase>
-					<goals>
-						<goal>shade</goal>
-					</goals>
-				</execution>
-			</executions>
-		</plugin>
-		<plugin>
-			<groupId>org.apache.maven.plugins</groupId>
-			<artifactId>maven-jar-plugin</artifactId>
-			<version>3.1.1</version>
-			<configuration>
-				<archive>
-					<manifest>
-						<addClasspath>true</addClasspath>
-						<mainClass>BaseballStatistics.BaseballStatistics.TestDriver</mainClass>
-					</manifest>
-				</archive>
-			</configuration>
-		</plugin>
-	</plugins>
+	<plugin>
+	   <groupId>org.owasp</groupId>
+	   <artifactId>dependency-check-maven</artifactId>
+	   <version>6.1.1</version>
+	   <executions>
+	      <execution>
+		 <goals>
+		    <goal>check</goal>
+		 </goals>
+	      </execution>
+	   </executions>
+	</plugin>
 </build>
 </project>
