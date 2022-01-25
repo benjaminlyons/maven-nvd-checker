@@ -9,6 +9,6 @@ sqlite3 nvd.db
 .quit
 python3 nvd_collector.py
 ```
-4. Finally, you can analyze a pom file with `python3 maven_dependency_parser`
+4. Finally, you can analyze a pom file with `python3 maven_dependency_parser.py pom.xml`
 
 
