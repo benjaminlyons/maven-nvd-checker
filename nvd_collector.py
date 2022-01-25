@@ -10,11 +10,11 @@ from progress.bar import Bar
 def initialize_db(db_filename):
     db = sqlite3.connect(db_filename)
 
-    # cpes_create_command = "create table cpes ( uri text, part text, vendor text, product text, version text, update_number text, edition text, language text, sw_edition text, target_sw text, target_hw text, other text, cve_id text, start_version text, end_version text, end_comp text);"
-    # db.execute(cpes_create_command)
+    cpes_create_command = "create table cpes ( uri text, part text, vendor text, product text, version text, update_number text, edition text, language text, sw_edition text, target_sw text, target_hw text, other text, cve_id text, start_version text, end_version text, end_comp text);"
+    db.execute(cpes_create_command)
 
-    # matches_create_command = "create table matches ( uri text, start_version text, end_version text, end_comp text, version text )"
-    # db.execute(matches_create_command)
+    matches_create_command = "create table matches ( uri text, start_version text, end_version text, end_comp text, version text )"
+    db.execute(matches_create_command)
     return db
 
 def extract_version_comps(cpe):
@@ -122,10 +122,10 @@ def main():
     db_filename = "nvd.db"
     db = initialize_db(db_filename)
 
-    # download_cpe_match_data(db)
+    download_cpe_match_data(db)
 
-    # for year in range(2002, 2022):
-    #     download_year_data(year, db)
+    for year in range(2002, 2022):
+        download_year_data(year, db)
 
     # now join these two tables together
     print("Creating cve match table...", end='', flush=True)

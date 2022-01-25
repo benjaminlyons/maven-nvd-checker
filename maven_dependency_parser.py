@@ -27,7 +27,7 @@ def match(groupid, artifactid, vendor, product):
     group_parts = groupid.split('.')
     if len(group_parts) > 1:
         for index, part in enumerate(group_parts):
-            if index > 0 and re.match(product, part):
+            if index > 0 and product == part:
                 print(product, groupid)
                 return True
 
